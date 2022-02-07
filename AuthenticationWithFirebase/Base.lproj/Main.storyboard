@@ -1,24 +1,222 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Auth View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AuthViewController" customModule="AuthenticationWithFirebase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWs-Qp-Jxu">
+                                <rect key="frame" x="16" y="418" width="382" height="60"/>
+                                <color key="backgroundColor" red="0.96470588450000005" green="0.94509804249999996" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="BjS-6H-4Nq"/>
+                                </constraints>
+                                <color key="tintColor" red="0.109803915" green="0.26274511220000002" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Authorisation"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRaius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="authTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="i2g-H0-i3u"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="DWs-Qp-Jxu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3a7-13-JbU"/>
+                            <constraint firstItem="DWs-Qp-Jxu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dKI-lr-5lC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DWs-Qp-Jxu" secondAttribute="trailing" constant="16" id="yO1-xp-JgC"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="13" y="94"/>
+        </scene>
+        <!--Phone NumberVC-->
+        <scene sceneID="dd6-69-I9J">
+            <objects>
+                <viewController restorationIdentifier="PhoneNumberVC" storyboardIdentifier="PhoneNumberVC" modalPresentationStyle="fullScreen" id="RuL-Il-Gnj" customClass="PhoneNumberVC" customModule="AuthenticationWithFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Upe-Ek-uej">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8cj-x2-zQw">
+                                <rect key="frame" x="16" y="292" width="382" height="133"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your phone number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbD-JL-mLF">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
+                                        <color key="textColor" red="0.96470588450000005" green="0.94509804249999996" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ux1-an-jCX" customClass="FPNTextField" customModule="FlagPhoneNumber">
+                                        <rect key="frame" x="0.0" y="41.5" width="382" height="36"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6s-xF-YIp">
+                                        <rect key="frame" x="0.0" y="92.5" width="382" height="40.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Get code">
+                                            <fontDescription key="titleFontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="getCode:" destination="RuL-Il-Gnj" eventType="touchUpInside" id="YpJ-Mm-Bo7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mSO-bz-hE3"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="mSO-bz-hE3" firstAttribute="trailing" secondItem="8cj-x2-zQw" secondAttribute="trailing" constant="16" id="DQg-ME-DXc"/>
+                            <constraint firstItem="8cj-x2-zQw" firstAttribute="centerY" secondItem="Upe-Ek-uej" secondAttribute="centerY" multiplier="0.8" id="JHh-F1-Uuz"/>
+                            <constraint firstItem="8cj-x2-zQw" firstAttribute="leading" secondItem="mSO-bz-hE3" secondAttribute="leading" constant="16" id="f8l-SE-yHf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="getCodeButton" destination="t6s-xF-YIp" id="NNG-9b-Eee"/>
+                        <outlet property="labelEnterPhoneNumber" destination="UbD-JL-mLF" id="69d-qx-G0Y"/>
+                        <outlet property="textFieldWithPhoneNumber" destination="ux1-an-jCX" id="EYC-6N-3ZC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Akx-nf-TYZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="775" y="94"/>
+        </scene>
+        <!--Code ValidVC-->
+        <scene sceneID="mO8-aA-dmP">
+            <objects>
+                <viewController storyboardIdentifier="CodeValidVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YTs-jH-SZp" customClass="CodeValidVC" customModule="AuthenticationWithFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jQB-7F-Ytg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="L07-WR-11I">
+                                <rect key="frame" x="16" y="274" width="382" height="176.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rl1-4w-bZP">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
+                                        <color key="textColor" red="0.96470588450000005" green="0.94509804249999996" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wza-u1-aO6">
+                                        <rect key="frame" x="0.0" y="41.5" width="382" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Iyb-M6-WRn"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.96470588450000005" green="0.94509804249999996" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="phonePad"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQF-WB-UiF">
+                                        <rect key="frame" x="0.0" y="116.5" width="382" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="EiB-Ay-EXM"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Check code">
+                                            <fontDescription key="titleFontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="checkCodeTapped:" destination="YTs-jH-SZp" eventType="touchUpInside" id="UZt-c4-eJb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PnK-8z-BI2"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="PnK-8z-BI2" firstAttribute="trailing" secondItem="L07-WR-11I" secondAttribute="trailing" constant="16" id="7RC-ek-yrr"/>
+                            <constraint firstItem="L07-WR-11I" firstAttribute="centerY" secondItem="PnK-8z-BI2" secondAttribute="centerY" multiplier="0.8" id="HxV-uk-0E1"/>
+                            <constraint firstItem="L07-WR-11I" firstAttribute="leading" secondItem="PnK-8z-BI2" secondAttribute="leading" constant="16" id="zd8-F1-TKF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="checkCodeButton" destination="OQF-WB-UiF" id="W82-FD-jG3"/>
+                        <outlet property="codeTextView" destination="Wza-u1-aO6" id="ksa-IN-tq0"/>
+                        <outlet property="enterLabel" destination="rl1-4w-bZP" id="60M-IB-4As"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iHK-91-1y5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1554" y="94"/>
+        </scene>
+        <!--ContentVC-->
+        <scene sceneID="K9w-Jf-iVd">
+            <objects>
+                <viewController storyboardIdentifier="ContentVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9PV-px-PaV" customClass="ContentVC" customModule="AuthenticationWithFirebase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p7t-cj-0YF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1q-wA-7GN">
+                                <rect key="frame" x="16" y="742" width="382" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TK7-qe-ate"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Log Out">
+                                    <fontDescription key="titleFontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
+                                    <color key="baseForegroundColor" red="0.96470588450000005" green="0.94509804249999996" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logOut:" destination="9PV-px-PaV" eventType="touchUpInside" id="pI4-5E-dvZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have logged in 🎉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqx-70-CjW">
+                                <rect key="frame" x="106" y="435" width="202.5" height="26.5"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
+                                <color key="textColor" red="0.96470588450000005" green="0.94509804249999996" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b7a-1k-q8o"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="yqx-70-CjW" firstAttribute="centerX" secondItem="p7t-cj-0YF" secondAttribute="centerX" id="Bhz-6H-6bm"/>
+                            <constraint firstItem="b7a-1k-q8o" firstAttribute="trailing" secondItem="k1q-wA-7GN" secondAttribute="trailing" constant="16" id="PRf-j5-YTY"/>
+                            <constraint firstItem="k1q-wA-7GN" firstAttribute="leading" secondItem="b7a-1k-q8o" secondAttribute="leading" constant="16" id="SlX-Iq-D1E"/>
+                            <constraint firstItem="b7a-1k-q8o" firstAttribute="bottom" secondItem="k1q-wA-7GN" secondAttribute="bottom" constant="60" id="eQx-JU-XGA"/>
+                            <constraint firstItem="yqx-70-CjW" firstAttribute="centerY" secondItem="p7t-cj-0YF" secondAttribute="centerY" id="uz4-Bs-ZyQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="sfj-zJ-tUd" kind="unwind" identifier="logOutSegue:" unwindAction="logOutSegue:" id="Vky-hw-Qx7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2JJ-yi-EPp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="sfj-zJ-tUd" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2299" y="94"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
